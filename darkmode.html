@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" class="dark:bg-red-500 bg-blue-500">
+<head>
+    <meta charset=" UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dark Mode Playground</title>
+<!-- <link rel="stylesheet" href="./src/output.css"> -->
+</head>
+
+<script>
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    document.documentElement.classList.toggle(
+        "dark",
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
+    );
+</script>
+
+
+<body>
+    <!-- <div class="bg-white dark:bg-gray-800 rounded-lg px-6 py-8 ring shadow-xl ring-gray-900/5">
+        <div>
+          <span class="inline-flex items-center justify-center rounded-md bg-indigo-500 p-2 shadow-lg">
+            <svg class="h-6 w-6 stroke-white" ...>
+              
+            </svg>
+          </span>
+        </div>
+        <h3 class="text-gray-900 dark:text-white mt-5 text-base font-medium tracking-tight ">Writes upside-down</h3>
+        <p class="text-gray-500 dark:text-gray-400 mt-2 text-sm ">
+          The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even works in outer space.
+        </p>
+      </div> -->
+      
+      <div class="flex justify-center items-center gap-4 mt-4">
+        <!-- button for lightmode -->
+        <button id="btn-light" class="w-32 h-12 p-2 bg-red-300 rounded-2xl ">
+            Light Mode
+        </button>
+        <!-- button for darkmode -->
+        <button id="btn-dark" class="w-32 h-12 p-2 bg-blue-300 rounded-2xl ">
+            Dark Mode
+        </button>
+      </div>
+</body>
+
+<script>
+    // implemetation logic to change darkmode
+    document.getElementById('btn-dark').addEventListener('click',
+        ()=>{
+
+            document.documentElement.classList.add('dark');
+            // alert(addDark);
+            localStorage.setItem('theme', 'dark');
+        }
+    )
+
+    // implementation logic to change lightmode
+    document.getElementById('btn-light').addEventListener('click',
+        ()=>{
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+        }
+    )
+</script>
+
+</html>

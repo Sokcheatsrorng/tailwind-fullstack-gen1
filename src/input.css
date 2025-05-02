@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@import url('https://fonts.googleapis.com/css2?family=Dangrek&family=Hanuman:wght@100;300;400;700;900&family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&family=Lexend:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+  
+
+/* custom theme */
+@theme{
+    --color-primary: green;
+    --font-kantumruy: "Kantumruy Pro", sans-serif;
+    --font-weight-kantumruy: 100;
+    --font-style-katumruy: normal;
+    --spacing-custom-sm: 12px;
+}
+
+/* cutom base */
+@layer base{
+
+    img:hover{
+        transform: scale(0.9);
+        transition-duration: 700ms;
+    }
+
+    h1{
+        font-family: var( --font-kantumruy);
+        font-weight: var(--font-weight-kantumruy);
+        font-style: var(--font-style-katumruy);
+    }
+
+}
